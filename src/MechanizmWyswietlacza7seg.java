@@ -140,4 +140,6 @@ public class MechanizmWyswietlacza7seg {
         else return '!';
     }
 
+
+
 }
