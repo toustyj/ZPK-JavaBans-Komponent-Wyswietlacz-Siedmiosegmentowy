@@ -161,83 +161,123 @@ public class Wyswietlacz7seg extends JPanel {
             dlugoscPionowejKrechy = y/2;
         }
         
+
+        
+        
+        // segmenty
+        // dla skalowalnego
+        
         if(czySkalowalny){
-            // segment a
-            if(mechanizmWyswietlacza.getStan()[0] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(gruboscRameczki, gruboscRameczki, dlugoscPoziomejKrechy, szerokoscSegmentu);
-            }
-            else {
+            
+            
+            
+            // zgaszone segmenty
+        
+            // zgaszony a
+            if(!czyZapalonySegmentA()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(gruboscRameczki, gruboscRameczki, dlugoscPoziomejKrechy - gruboscRameczki*2, szerokoscSegmentu);
                 }
             }
-            // segment b
-            if(mechanizmWyswietlacza.getStan()[1] == true){
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(x-szerokoscSegmentu-gruboscRameczki,gruboscRameczki,szerokoscSegmentu,dlugoscPionowejKrechy);
-            }
-            else {
+            // zgaszony b
+            if(!czyZapalonySegmentB()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(x-szerokoscSegmentu-gruboscRameczki,gruboscRameczki,szerokoscSegmentu,dlugoscPionowejKrechy);
-                }
+                }            
             }
-            // segment c
-            if(mechanizmWyswietlacza.getStan()[2] == true){
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(x-szerokoscSegmentu-gruboscRameczki,gruboscRameczki+dlugoscPionowejKrechy,szerokoscSegmentu,dlugoscPionowejKrechy);
-            }
-            else {
+            // zgaszony c
+            if(!czyZapalonySegmentC()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(x-szerokoscSegmentu-gruboscRameczki,gruboscRameczki+dlugoscPionowejKrechy,szerokoscSegmentu,dlugoscPionowejKrechy - gruboscRameczki *2);
                 }
             }
-            // segment d
-            if(mechanizmWyswietlacza.getStan()[3] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(gruboscRameczki,y-szerokoscSegmentu-gruboscRameczki,dlugoscPoziomejKrechy,szerokoscSegmentu+1);
-            }
-            else {
+            // zgaszony d
+            if(!czyZapalonySegmentD()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(gruboscRameczki,y-szerokoscSegmentu-gruboscRameczki,dlugoscPoziomejKrechy,szerokoscSegmentu+1);
                 }
             }
-            // segment e
-            if(mechanizmWyswietlacza.getStan()[4] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(gruboscRameczki,gruboscRameczki+dlugoscPionowejKrechy,szerokoscSegmentu,dlugoscPionowejKrechy);
-            }
-            else {
+            // zgaszony e
+            if(!czyZapalonySegmentE()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(gruboscRameczki,gruboscRameczki+dlugoscPionowejKrechy,szerokoscSegmentu,dlugoscPionowejKrechy - gruboscRameczki * 2);
                 }
             }
-            // segment f
-            if(mechanizmWyswietlacza.getStan()[5] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(gruboscRameczki,gruboscRameczki,szerokoscSegmentu,dlugoscPionowejKrechy);
-            } 
-            else {
+            // zgaszony f
+            if(!czyZapalonySegmentF()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(gruboscRameczki,gruboscRameczki,szerokoscSegmentu,dlugoscPionowejKrechy);
                 }
             }
-            // segment g
-            if(mechanizmWyswietlacza.getStan()[6] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect(gruboscRameczki,(y-szerokoscSegmentu)/2,dlugoscPoziomejKrechy,szerokoscSegmentu);
-            } 
-            else {
+            // zgaszony g 
+            if(!czyZapalonySegmentG()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect(gruboscRameczki,(y-szerokoscSegmentu)/2,dlugoscPoziomejKrechy,szerokoscSegmentu);
                 }
+            }
+            
+            // segment a
+            if(czyZapalonySegmentA()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(gruboscRameczki, gruboscRameczki, dlugoscPoziomejKrechy, szerokoscSegmentu);
+            }
+            else {
+
+            }
+            // segment b
+            if(czyZapalonySegmentB()){
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(x-szerokoscSegmentu-gruboscRameczki,gruboscRameczki,szerokoscSegmentu,dlugoscPionowejKrechy);
+            }
+            else {
+
+            }
+            // segment c
+            if(czyZapalonySegmentC()){
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(x-szerokoscSegmentu-gruboscRameczki,gruboscRameczki+dlugoscPionowejKrechy,szerokoscSegmentu,dlugoscPionowejKrechy);
+            }
+            else {
+
+            }
+            // segment d
+            if(czyZapalonySegmentD()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(gruboscRameczki,y-szerokoscSegmentu-gruboscRameczki,dlugoscPoziomejKrechy,szerokoscSegmentu+1);
+            }
+            else {
+
+            }
+            // segment e
+            if(czyZapalonySegmentE()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(gruboscRameczki,gruboscRameczki+dlugoscPionowejKrechy,szerokoscSegmentu,dlugoscPionowejKrechy);
+            }
+            else {
+
+            }
+            // segment f
+            if(czyZapalonySegmentF()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(gruboscRameczki,gruboscRameczki,szerokoscSegmentu,dlugoscPionowejKrechy);
+            } 
+            else {
+
+            }
+            // segment g
+            if(czyZapalonySegmentG()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect(gruboscRameczki,(y-szerokoscSegmentu)/2,dlugoscPoziomejKrechy,szerokoscSegmentu);
+            } 
+            else {
+
             }
             
             
@@ -253,76 +293,111 @@ public class Wyswietlacz7seg extends JPanel {
         }//czySkalowalny
         
         
+        // nie skalowalny
+        
         else{
-            // segment a
-            if(mechanizmWyswietlacza.getStan()[0] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int) (2*modyfikatorWielkosci), (int) (2*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
-            }else {
+            
+            // zgaszone
+            
+            // zgaszony a
+            if(!czyZapalonySegmentA()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int) (2*modyfikatorWielkosci), (int) (2*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
                 }
             }
-            // segment b
-            if(mechanizmWyswietlacza.getStan()[1] == true){
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int)(94*modyfikatorWielkosci),(int) (2*modyfikatorWielkosci),szerokoscLiniiSkorygowana,wysokoscLiniiSkorygowana);
-            }else {
+            // zgaszony b
+            if(!czyZapalonySegmentB()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int)(94*modyfikatorWielkosci),(int) (2*modyfikatorWielkosci),szerokoscLiniiSkorygowana,wysokoscLiniiSkorygowana);
                 }
             }
-            // segment c
-            if(mechanizmWyswietlacza.getStan()[2] == true){
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int)(94*modyfikatorWielkosci),(int)(102*modyfikatorWielkosci),szerokoscLiniiSkorygowana,wysokoscLiniiSkorygowana);
-            } else {
+            // zgaszony c 
+            if(!czyZapalonySegmentC()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int)(94*modyfikatorWielkosci),(int)(102*modyfikatorWielkosci),szerokoscLiniiSkorygowana,wysokoscLiniiSkorygowana);
                 }
             }
-            // segment d
-            if(mechanizmWyswietlacza.getStan()[3] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int) (2*modyfikatorWielkosci), (int)(194*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
-            } else {
+            // zgaszony d
+            if(!czyZapalonySegmentD()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int) (2*modyfikatorWielkosci), (int)(194*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana+1);
                 }
             }
-            // segment e
-            if(mechanizmWyswietlacza.getStan()[4] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int) (2*modyfikatorWielkosci), (int)(102*modyfikatorWielkosci), szerokoscLiniiSkorygowana, wysokoscLiniiSkorygowana);
-            } else {
+            // zgaszony e
+            if(!czyZapalonySegmentE()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int) (2*modyfikatorWielkosci), (int)(102*modyfikatorWielkosci), szerokoscLiniiSkorygowana, wysokoscLiniiSkorygowana);
                 }
             }
-            // segment f
-            if(mechanizmWyswietlacza.getStan()[5] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int) (2*modyfikatorWielkosci), (int) (2*modyfikatorWielkosci), szerokoscLiniiSkorygowana, wysokoscLiniiSkorygowana);
-            } else {
+            // zgaszony f
+            if(!czyZapalonySegmentF()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int) (2*modyfikatorWielkosci), (int) (2*modyfikatorWielkosci), szerokoscLiniiSkorygowana, wysokoscLiniiSkorygowana);
                 }
             }
-            // segment g
-            if(mechanizmWyswietlacza.getStan()[6] == true) {
-                g.setColor(kolorPalacegoSieSegmentu);
-                g.fillRect((int) (2*modyfikatorWielkosci), (int)(102*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
-            } else {
+            // zgaszony g
+            if(!czyZapalonySegmentG()){
                 if(kolorWylaczonegoSegmentu != null){
                     g.setColor(kolorWylaczonegoSegmentu);
                     g.fillRect((int) (2*modyfikatorWielkosci), (int)(102*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
                 }
+            }
+            
+            
+            // segment a
+            if(czyZapalonySegmentA()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int) (2*modyfikatorWielkosci), (int) (2*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
+            }else {
+
+            }
+            // segment b
+            if(czyZapalonySegmentB()){
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int)(94*modyfikatorWielkosci),(int) (2*modyfikatorWielkosci),szerokoscLiniiSkorygowana,wysokoscLiniiSkorygowana);
+            }else {
+
+            }
+            // segment c
+            if(czyZapalonySegmentC()){
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int)(94*modyfikatorWielkosci),(int)(102*modyfikatorWielkosci),szerokoscLiniiSkorygowana,wysokoscLiniiSkorygowana);
+            } else {
+
+            }
+            // segment d
+            if(czyZapalonySegmentD()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int) (2*modyfikatorWielkosci), (int)(194*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
+            } else {
+
+            }
+            // segment e
+            if(czyZapalonySegmentE()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int) (2*modyfikatorWielkosci), (int)(102*modyfikatorWielkosci), szerokoscLiniiSkorygowana, wysokoscLiniiSkorygowana);
+            } else {
+
+            }
+            // segment f
+            if(czyZapalonySegmentF()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int) (2*modyfikatorWielkosci), (int) (2*modyfikatorWielkosci), szerokoscLiniiSkorygowana, wysokoscLiniiSkorygowana);
+            } else {
+
+            }
+            // segment g
+            if(czyZapalonySegmentG()) {
+                g.setColor(kolorPalacegoSieSegmentu);
+                g.fillRect((int) (2*modyfikatorWielkosci), (int)(102*modyfikatorWielkosci), wysokoscLiniiSkorygowana, szerokoscLiniiSkorygowana);
+            } else {
+
             }
             
             // ramka
@@ -467,8 +542,30 @@ public class Wyswietlacz7seg extends JPanel {
         setStan(stan);
     }
     
+    private boolean czyZapalonySegmentA(){
+        return mechanizmWyswietlacza.getStan()[0] == true;
+    }
     
+    private boolean czyZapalonySegmentB(){
+        return mechanizmWyswietlacza.getStan()[1] == true;
+    }
     
+    private boolean czyZapalonySegmentC(){
+        return mechanizmWyswietlacza.getStan()[2] == true;
+    }
     
+    private boolean czyZapalonySegmentD(){
+        return mechanizmWyswietlacza.getStan()[3] == true;
+    }
     
+    private boolean czyZapalonySegmentE(){
+        return mechanizmWyswietlacza.getStan()[4] == true;
+    }
+    
+    private boolean czyZapalonySegmentF(){
+        return mechanizmWyswietlacza.getStan()[5] == true;
+    }
+    private boolean czyZapalonySegmentG(){
+        return mechanizmWyswietlacza.getStan()[6] == true;
+    }
 }
